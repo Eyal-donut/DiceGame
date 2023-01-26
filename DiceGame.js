@@ -1,27 +1,45 @@
 //! variables
 const player1 = {
-//   isPlaying: true, /// I changed the command to current player
   score: 0,
 };
 const player2 = {
-//   isPlaying: false, // I changed the command to current player
   score: 0,
 };
+//------------------------------------------- Variables
 
 const gameOver = false;
-const rollDiceBtn = document.querySelector("#roll-dice");
 let gameTarget = 0;
 let currentPlayer = player1;
 let otherPlayer = player2;
 let winner = '';
 
+
+//--------------------------------------
+//-----------------------------------------QuerySelector Variables
+const rollDiceBtn = document.querySelector("#roll-dice");
+const dicePic1 = document.querySelector(".dice1")
+const dicePic2 = document.querySelector(".dice2")
+
+
+
+
+//------------------------------------------------------------------------
 //! functions
 const changePlayer = () => {
     currentPlayer === player1 ? currentPlayer = player2 : currentPlayer = player1;
     otherPlayer === player1 ? otherPlayer = player2 : otherPlayer = player1;
 };
 
-const rollDiceFunc = "";
+const rollDiceFunc = () => {
+    const dice1Result = Math.floor(Math.random()*6 + 1)
+    dicePic1.style.background = `url(/assets/img/dice-${dice1Result}.png) no-repeat center center/cover`;
+    const dice2Result = Math.floor(Math.random()*6 + 1)
+    dicePic2.style.background = `url(/assets/img/dice-${dice2Result}.png) no-repeat center center/cover`;
+}
+
+
+
+console.log(rollDiceFunc)
 const diceToCurrent = "";
 const totalSum = ""; //adding the current to the total.
 const isGameOver = "";
@@ -30,6 +48,7 @@ const toggleOverlay = "";
 
 //! modal
 // click event on start game:
+
 //1. prevent default (no need of page refresh)
 //2. target of game is set to the input of the form.
 //3. modal is becoming invisible.
@@ -40,7 +59,8 @@ const toggleOverlay = "";
 while (!gameOver) {
   //eventListener - currentPlayer clicks the rolldice button
   rollDiceBtn.addEventListener("click", (event) => {
-    //function activated - rollDiceFunc
+    rollDiceFunc();
+
     //the numbers that are shown will change the photos of the dice.
     //function called: diceToCurrent: sum of dice is added current of player
 
