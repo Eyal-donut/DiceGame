@@ -123,12 +123,13 @@ const afterGameOver = () => {
     player1Heading.innerHTML = `<h6>PLAYER 1</h6>`;
     youWinContainerP1.append(youWin);
     youWinContainerP2.append(passedTargetScore);
+    toggleFinger();
   }
   if (player1.score === gameTarget) {
     winner = player1;
     player1InterfaceContainer.classList.add("winner");
     player1Heading.innerHTML = `<h6>PLAYER 1</h6>`;
-    youWinContainerP1.append(youWin);
+    youWinContainerP1.append(youWin); toggleFinger();
   }
 };
 
