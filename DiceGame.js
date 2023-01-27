@@ -18,7 +18,9 @@ let sumOfDice = 0;
 //-----------------------------------------QuerySelector Variables general----------------------------------------
 
 const rollDiceBtn = document.querySelector("#roll-dice");
+rollDiceBtn.disabled = false;
 const holdBtn = document.querySelector(".hold-btn");
+holdBtn.disabled = false;
 const startGameBtn = document.querySelector("#start-game-btn");
 const input = document.querySelector("input");
 const modal = document.querySelector(".modal");
@@ -69,6 +71,7 @@ failAlert.innerText = "*Please select a number between 20 to 10000";
 //! ------------------------------------------------------functions --------------------------------------------
 
 const rollDiceFunc = () => {
+  playAudio(diceAudio);
   dice1Result = Math.floor(Math.random() * 6 + 1);
   dice2Result = Math.floor(Math.random() * 6 + 1);
   sumOfDice = dice1Result + dice2Result;
@@ -97,6 +100,7 @@ const currentToZero = (p) => {
 };
 
 const afterGameOver = () => {
+  playAudio(applauseAudio);
   let winner = "";
   if (player1.score > gameTarget || player2.score === gameTarget) {
     winner = player2;
@@ -120,6 +124,8 @@ const isGameOver = () => {
     player1.score === gameTarget ||
     player2.score === gameTarget
   ) {
+    holdBtn.disabled = true;
+    rollDiceBtn.disabled = true;
     afterGameOver();
     return true;
   }
@@ -152,6 +158,16 @@ const diceToCurrent = (p) => {
   }
 };
 
+//!-----------------------------------------------------Audio-----------------------------------------------------
+
+const applauseAudio = new Audio("/assets/media/applause.mp3");
+const diceAudio = new Audio("/assets/media/dice.mp3");
+
+const playAudio = (audio) => {
+  audio.volume = 0.1;
+  audio.play();
+};
+
 //!------------------------------------------------------Modal ----------------------------------------------------
 
 startGameBtn.addEventListener("click", function (event) {
@@ -169,14 +185,12 @@ startGameBtn.addEventListener("click", function (event) {
 
 rollDiceBtn.addEventListener("click", function () {
   if (!isGameOver()) {
-    holdBtn.disabled = false;
     rollDiceFunc();
     diceToCurrent(currentPlayer);
   }
 });
 holdBtn.addEventListener("click", function () {
   if (!isGameOver()) {
-    holdBtn.disabled = true;
     updateTotalSum(currentPlayer);
     currentToZero(currentPlayer);
     isGameOver();
@@ -188,4 +202,3 @@ holdBtn.addEventListener("click", function () {
 newGameBtn.addEventListener("click", function () {
   window.location.reload();
 });
-
