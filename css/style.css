@@ -14,6 +14,8 @@
   visibility: hidden;
 }
 
+
+
 /* .start-screen {
     for the end screen add callsList.add("visible: hidden")
 } */
@@ -100,6 +102,16 @@ section.game-interface {
   width: 50%;
   visibility: hidden;
 }
+.player1-overlay.visibility {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgb(0, 0, 0, 0.1);
+  height: 100%;
+  width: 50%;
+  visibility: visible;
+}
 .player2-overlay {
   position: absolute;
   top: 0;
@@ -109,6 +121,16 @@ section.game-interface {
   height: 100%;
   width: 50%;
   visibility: visible;
+}
+.player2-overlay.visibility {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background: rgb(0, 0, 0, 0.1);
+  height: 100%;
+  width: 50%;
+  visibility: hidden;
 }
 
 .player1-container {
@@ -127,8 +149,44 @@ section.game-interface {
   justify-content: flex-start;
 }
 
-.player-interface-container {
+.player1-interface-container {
   background-color: var(--player-active);
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.player1-interface-container.winner {
+  background-color: var(--bgr-winner);
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.player2-interface-container {
+  background-color: var(--player-active);
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.player2-interface-container.winner {
+  background-color: var(--bgr-winner);
   height: 100%;
   width: 80%;
   display: flex;
