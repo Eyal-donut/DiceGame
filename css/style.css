@@ -145,8 +145,8 @@ section.game-interface {
   height: 6rem;
   background: url(/assets/img/finger3.png) no-repeat center center/cover;
   position: absolute;
-  top: 58vh;
-  left: 18vw;
+  top: 55vh;
+  left: 17vw;
   transition: all 0.5s ease-in-out;
   visibility: hidden;
 }
@@ -155,7 +155,7 @@ section.game-interface {
   width: 10rem;
   height: 6rem;
   background: url(/assets/img/finger3.png) no-repeat center center/cover;
-  top: 58vh;
+  top: 55vh;
   left: 20vw;
   position: absolute;
   transform: translateX(50vw) rotate(230deg);
@@ -165,7 +165,7 @@ section.game-interface {
   width: 10rem;
   height: 6rem;
   background: url(/assets/img/finger3.png) no-repeat center center/cover;
-  top: 58vh;
+  top: 55vh;
   left: 20vw;
   position: absolute;
   transform: translateX(50vw) rotate(340deg);
