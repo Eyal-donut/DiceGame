@@ -20,6 +20,8 @@ let sumOfDice = 0;
 const rollDiceBtn = document.querySelector("#roll-dice");
 const holdBtn = document.querySelector(".hold-btn");
 const startGameBtn = document.querySelector(".start-game-btn");
+const input = document.querySelector("input");
+const modal = document.querySelector(".modal")
 
 
 const dicePic1 = document.querySelector(".dice1");
@@ -41,7 +43,7 @@ const player2Heading = document.querySelector(".player2-heading");
 const youWinContainerP1 = document.querySelector(".you-win-container-p1");
 const youWinContainerP2 = document.querySelector(".you-win-container-p2");
 
-//-----------------------------Create new Elements
+//-----------------------------Create new Elements----------------------
 const youWin = document.createElement("h5");
 youWin.textContent = "You Win!";
 youWin.style.color = "#941D4A";
@@ -93,7 +95,22 @@ const currentToZero = (p) => {
     : (currentRoundSumP2.textContent = "0");
 };
 
-//function activated: isGameOver: if current of player === gameTarget, currentPlayer wins, if current > gameTarget, otherPlayer win. activate function announceWinner. gameOver. else do nothing.
+const afterGameOver = () => {
+  let winner = "";
+  if (player1.score > gameTarget || player2.score === gameTarget) {
+    winner = player2;
+    player2InterfaceContainer.classList.add("winner");
+    player2Heading.innerHTML = `<h1>PLAYER 2</h1>`;
+    youWinContainerP2.append(youWin);
+    youWinContainerP1.append(passedTargetScore);
+  } else {
+    winner = player1;
+    player1InterfaceContainer.classList.add("winner");
+    player1Heading.innerHTML = `<h1>PLAYER 1</h1>`;
+    youWinContainerP1.append(youWin);
+    youWinContainerP2.append(passedTargetScore);
+  }
+};
 
 const isGameOver = () => {
   if (
@@ -119,29 +136,17 @@ const toggleOverlay = () => {
   player2Overlay.classList.toggle("visibility");
 };
 
-const afterGameOver = () => {
-  let winner = "";
-  if (player1.score > gameTarget || player2.score === gameTarget) {
-    winner = player2;
-    player2InterfaceContainer.classList.add("winner");
-    player2Heading.innerHTML = `<h1>PLAYER 2</h1>`;
-    youWinContainerP2.append(youWin);
-    youWinContainerP1.append(passedTargetScore);
-  } else {
-    winner = player1;
-    player1InterfaceContainer.classList.add("winner");
-    player1Heading.innerHTML = `<h1>PLAYER 1</h1>`;
-    youWinContainerP1.append(youWin);
-    youWinContainerP2.append(passedTargetScore);
-  }
-};
+
 
 
 //! modal
 // click event on start game:
 startGameBtn.addEventListener('click', function(){
-  
-})
+  gameTarget = input.value;
+  modal.classList.add("hide");
+  console.log(gameTarget)
+});
+console.log(gameTarget)
 
 //1. prevent default (no need of page refresh)
 //2. target of game is set to the input of the form.
