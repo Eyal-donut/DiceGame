@@ -133,7 +133,7 @@ section.game-interface {
   width: 100vw;
 }
 
-.player1-overlay {
+.player1-overlay.active {
   position: absolute;
   top: 0;
   left: 0;
@@ -143,13 +143,14 @@ section.game-interface {
   width: 50%;
   visibility: hidden;
 }
-.player1-overlay.active {
+.player1-overlay {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
   background: rgb(0, 0, 0, 0.2);
-  height: 100%;
+  height: 150%;
+  overflow-y: hidden;
   width: 50%;
   visibility: visible;
 }
@@ -159,7 +160,7 @@ section.game-interface {
   right: 0;
   z-index: 1;
   background: rgb(0, 0, 0, 0.1);
-  height: 100%;
+  height: 150%;
   width: 50%;
   visibility: visible;
 }
@@ -171,6 +172,7 @@ section.game-interface {
   background: rgb(0, 0, 0, 0.1);
   height: 100%;
   width: 50%;
+  overflow-y: hidden;
   visibility: hidden;
 }
 
