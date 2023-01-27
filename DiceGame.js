@@ -57,7 +57,7 @@ const player2InterfaceContainer = document.querySelector(
 
 const youWin = document.createElement("h5");
 youWin.textContent = "You Win!";
-youWin.style.color = "#941D4A";
+youWin.style.color = "#bf4130";
 youWin.style.marginTop = "30rem";
 
 const passedTargetScore = document.createElement("h5");

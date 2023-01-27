@@ -5,8 +5,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(0.25turn, #a676a5, #d38592);
-  border: 5px solid #754678;
+  background: linear-gradient(0.25turn, var(--modal-1), var(--modal-2));
+  border: 5px solid var(--modal-border);
   border-radius: 1rem;
   height: 95%;
   width: 90%;
@@ -168,7 +168,7 @@ section.game-interface {
   top: 60vh;
   left: 20vw;
   position: absolute;
-  transform: translateX(300vw) rotate(340deg);
+  transform: translateX(50vw) rotate(340deg);
   visibility: hidden;
 }
 

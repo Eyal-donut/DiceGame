@@ -1,7 +1,10 @@
 :root {
-    --bgr-right: #84D2C5;
-    --bgr-left: #E4C988;
-    --player-active: #C27664;
-    --score-board: #B05A7A;
+    --bgr-right: #454453;
+    --bgr-left: #454453;
+    --player-active: #539D6E;
+    --score-board: #bf4130;
     --bgr-winner: #2F2F2F;
+    --modal-1: #d88176;
+    --modal-2: #b56358;
+    --modal-border: #2F2F2F;
 }      
