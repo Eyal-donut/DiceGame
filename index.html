@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/mediaQuery.css" />
     <script src="/DiceGame.js" defer></script>
     <title>DiceGame</title>
   </head>
@@ -16,10 +17,10 @@
       <div class="instructions start-screen">
         <h2>Game instructions</h2>
         <ul>
-          <li>some text</li>
-          <li>some text</li>
-          <li>some text</li>
-          <li>some text</li>
+          <li>In your turn - roll the dice (at least once) and accumulate the result in "current".</li>
+          <li>You can roll again or click "Hold" to save the points from "Current" and end the turn.</li>
+          <li>Note! if you get 6-6 - you will lose all points from "current" and the turn will go to your opponent.</li>
+          <li>If you managed to reach exactly the target score - you win! if you passed it - you loose.</li>
         </ul>
       </div>
       <div class="select-target-score">
@@ -65,7 +66,7 @@
         </div>
         <div class="middle-container">
             <button class="new-game-btn">
-                <div class="logo"></div>
+                <div class="logo whistle"></div>
                 <p>NEW GAME</p>
             </button>
             <div class="dice-container">
@@ -73,11 +74,11 @@
                 <div class="dice2"></div>
             </div>
             <button id="roll-dice">
-                <div class="logo"></div>
+                <div class="logo dice-logo"></div>
                 <p>ROLL DICE</p>
             </button>
             <button class="hold-btn">
-                <div class="logo"></div>
+                <div class="logo joystick"></div>
                 <p>HOLD</p>
             </button>
         </div>

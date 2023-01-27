@@ -1,0 +1,43 @@
+@media (max-width: 1050px) {
+  :root {
+    font-size: 50%;
+    letter-spacing: 0.06rem;
+  }
+  .player1-interface-container {
+    width: 90%;
+  }
+  .player1-interface-container.winner {
+    width: 90%;
+  }
+  .player2-interface-container {
+    width: 90%;
+  }
+  .player2-interface-container.winner {
+    width: 90%;
+  }
+  .middle-container {
+    padding: 15rem 0 25rem;
+  }
+}
+
+@media (max-width: 500px) {
+  :root {
+    font-size: 40%;
+    letter-spacing: 0.06rem;
+  }
+  .player1-interface-container {
+    width: 95%;
+  }
+  .player1-interface-container.winner {
+    width: 95%;
+  }
+  .player2-interface-container {
+    width: 95%;
+  }
+  .player2-interface-container.winner {
+    width: 95%;
+  }
+  .middle-container {
+    padding: 28rem 0 30rem;
+  }
+}
