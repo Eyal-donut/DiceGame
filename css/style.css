@@ -149,8 +149,7 @@ section.game-interface {
   left: 0;
   z-index: 1;
   background: rgb(0, 0, 0, 0.2);
-  height: 150%;
-  overflow-y: hidden;
+  height: 100%;
   width: 50%;
   visibility: visible;
 }
@@ -160,7 +159,7 @@ section.game-interface {
   right: 0;
   z-index: 1;
   background: rgb(0, 0, 0, 0.1);
-  height: 150%;
+  height: 100%;
   width: 50%;
   visibility: visible;
 }
@@ -172,7 +171,6 @@ section.game-interface {
   background: rgb(0, 0, 0, 0.1);
   height: 100%;
   width: 50%;
-  overflow-y: hidden;
   visibility: hidden;
 }
 
