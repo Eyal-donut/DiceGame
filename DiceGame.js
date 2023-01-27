@@ -173,6 +173,7 @@ const diceToCurrent = (p) => {
     currentToZero(currentPlayer);
     changePlayer();
     toggleOverlay();
+    toggleFinger();
   }
 };
 
