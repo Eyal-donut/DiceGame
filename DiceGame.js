@@ -7,7 +7,7 @@ const player2 = {
 //------------------------------------------- Variables
 
 const gameOver = false;
-let gameTarget = 0;
+let gameTarget = 1000000;
 let currentPlayer = player1;
 let otherPlayer = player2;
 let winner = "";
@@ -19,10 +19,10 @@ let sumOfDice = 0;
 //-----------------------------------------QuerySelector Variables
 const rollDiceBtn = document.querySelector("#roll-dice");
 const holdBtn = document.querySelector(".hold-btn");
-const startGameBtn = document.querySelector(".start-game-btn");
+const startGameBtn = document.querySelector("#start-game-btn");
 const input = document.querySelector("input");
-const modal = document.querySelector(".modal")
-
+const modal = document.querySelector(".modal");
+const newGameBtn = document.querySelector(".new-game-btn");
 
 const dicePic1 = document.querySelector(".dice1");
 const dicePic2 = document.querySelector(".dice2");
@@ -136,34 +136,42 @@ const toggleOverlay = () => {
   player2Overlay.classList.toggle("visibility");
 };
 
-
-
-
 //! modal
 // click event on start game:
-startGameBtn.addEventListener('click', function(){
+startGameBtn.addEventListener("click", function (event) {
+  event.preventDefault();
   gameTarget = input.value;
-  modal.classList.add("hide");
-  console.log(gameTarget)
+  if (input.value > 20 && input.value < 10000) {
+    modal.classList.add("hidden");
+  } else {
+    //!CHANGE THIS ALERT TO A NORMAL NOTIFICATION!!!!!!!!!!!!!!!!!!!
+    alert('hell no')
+    input.value = 100;
+  }
 });
-console.log(gameTarget)
 
 //1. prevent default (no need of page refresh)
 //2. target of game is set to the input of the form.
 //3. modal is becoming invisible.
 
-//! The game loop
+//! The game (loop?)
 
-while (!isGameOver) {
-  rollDiceBtn.addEventListener("click", function () {
-    rollDiceFunc();
-    diceToCurrent(currentPlayer);
-  });
-  holdBtn.addEventListener("click", function () {
-    updateTotalSum(currentPlayer);
-    currentToZero(currentPlayer);
-    isGameOver();
-    changePlayer();
-    toggleOverlay();
-  });
-}
+// while (gameOver === false) {
+rollDiceBtn.addEventListener("click", function () {
+  rollDiceFunc();
+  diceToCurrent(currentPlayer);
+});
+holdBtn.addEventListener("click", function () {
+  updateTotalSum(currentPlayer);
+  currentToZero(currentPlayer);
+  isGameOver();
+  changePlayer();
+  toggleOverlay();
+});
+// }
+// afterGameOver();
+
+//! New game
+newGameBtn.addEventListener("click", function () {
+  window.location.reload();
+});
