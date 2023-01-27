@@ -29,10 +29,6 @@
   visibility: hidden;
 };
 
-
-/* .start-screen {
-    for the end screen add callsList.add("visible: hidden")
-} */
 form {
   display: flex;
   flex-direction: column;
@@ -86,6 +82,11 @@ h3 {
   font-size: 3.4rem;
   font-weight: 700;
 }
+.select-target-score > h3 {
+  position: relative;
+  font-size: 3.2rem;
+  font-weight: 700;
+  }
 h4 {
   font-size: 4.8rem;
   font-weight: 300;
@@ -96,10 +97,12 @@ h5 {
   font-weight: 300;
   color: #ffffff;
 }
-.select-target-score h3 {
-  font-size: 3.6rem;
-  font-weight: 700;
-  margin-bottom: 10rem;
+
+.error {
+  font-size: 2.6rem;
+  font-weight: 550;
+  color: rgb(183, 54, 54);
+  margin: 2rem 0 0 0;
 }
 
 .select-target-score{
@@ -111,8 +114,10 @@ h5 {
 
 .select-target-score form input {
   margin-bottom: 1rem;
+  margin-top: 5rem;
   border-radius: 1.5rem;
   height: 4rem;
+
 }
 
 section.game-interface {
@@ -249,7 +254,7 @@ section.game-interface {
   justify-content: space-between;
   align-items: center;
   background: none;
-  padding: 3rem 0;
+  padding: 10rem 0 15rem;
   z-index: 5;
 }
 .dice-container {

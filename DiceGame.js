@@ -6,7 +6,6 @@ const player2 = {
 };
 //------------------------------------------- Variables
 
-const gameOver = false;
 let gameTarget = 1000000;
 let currentPlayer = player1;
 let otherPlayer = player2;
@@ -23,6 +22,8 @@ const startGameBtn = document.querySelector("#start-game-btn");
 const input = document.querySelector("input");
 const modal = document.querySelector(".modal");
 const newGameBtn = document.querySelector(".new-game-btn");
+const ParentOfFailAlert = document.querySelector("h3.select-target-score")
+
 
 const dicePic1 = document.querySelector(".dice1");
 const dicePic2 = document.querySelector(".dice2");
@@ -54,6 +55,9 @@ passedTargetScore.textContent = "Passed the target score";
 passedTargetScore.style.color = "#2F2F2F";
 passedTargetScore.style.marginTop = "30rem";
 
+const failAlert = document.createElement("h4");
+failAlert.classList.add("error");
+failAlert.innerText = "*Please select a number between 20 to 10000"
 //------------------------------------------------------------------------
 //! --------------------------------------------functions ---------------------
 
@@ -120,7 +124,7 @@ const isGameOver = () => {
     player2.score === gameTarget
   ) {
     afterGameOver();
-    gameOver = true
+    return true;
   }
 };
 
@@ -145,7 +149,9 @@ startGameBtn.addEventListener("click", function (event) {
     modal.classList.add("hidden");
   } else {
     //!CHANGE THIS ALERT TO A NORMAL NOTIFICATION!!!!!!!!!!!!!!!!!!!
-    alert('hell no')
+    ParentOfFailAlert.append(failAlert);
+    // failInputAlert.classList.add("error");
+    // failInputAlert.setAttribute("data-errormsg", "Select a number between 20 to 10000")
     input.value = 100;
   }
 });
@@ -154,30 +160,28 @@ startGameBtn.addEventListener("click", function (event) {
 //2. target of game is set to the input of the form.
 //3. modal is becoming invisible.
 
-//! The game (loop?)
+//! The game
 
-// while (gameOver === false) {
 rollDiceBtn.addEventListener("click", function () {
-  rollDiceFunc();
-  diceToCurrent(currentPlayer);
+  if (!isGameOver()) {
+    rollDiceFunc();
+    diceToCurrent(currentPlayer);
+  };
 });
 holdBtn.addEventListener("click", function () {
+  if (!isGameOver()) {
   updateTotalSum(currentPlayer);
   currentToZero(currentPlayer);
   isGameOver();
   changePlayer();
   toggleOverlay();
+  }
 });
-// };
-// afterGameOver();
 
 //! New game
 newGameBtn.addEventListener("click", function () {
   window.location.reload();
 });
 
-
 ///make responsive: one breaking point that makes the middle menu smaller
-//why does the loop doesnt work?!?!?!?!?
-//put more margin from the bottom of the buttons
-//change the red alert to a normal message
+//add icons to buttons
