@@ -160,6 +160,9 @@ section.game-interface {
   position: absolute;
   transform: translateX(50vw) rotate(230deg);
   visibility: hidden;
+  transition: all 0.5s ease-in-out;
+
+  
 }
 .finger.gameOver{
   width: 10rem;
@@ -169,7 +172,9 @@ section.game-interface {
   left: 20vw;
   position: absolute;
   transform: translateX(50vw) rotate(340deg);
-  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+
 }
 
 .player1-overlay {
