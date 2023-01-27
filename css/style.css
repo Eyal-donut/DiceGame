@@ -141,7 +141,7 @@ section.game-interface {
 }
 
 .finger {
-  width: 8rem;
+  width: 10rem;
   height: 6rem;
   background: url(/assets/img/finger3.png) no-repeat center center/cover;
   position: absolute;
@@ -152,7 +152,7 @@ section.game-interface {
 }
 
 .finger.transitioned{
-  width: 8rem;
+  width: 10rem;
   height: 6rem;
   background: url(/assets/img/finger3.png) no-repeat center center/cover;
   top: 58vh;
@@ -162,7 +162,7 @@ section.game-interface {
   visibility: hidden;
 }
 .finger.gameOver{
-  width: 8rem;
+  width: 10rem;
   height: 6rem;
   background: url(/assets/img/finger3.png) no-repeat center center/cover;
   top: 58vh;
