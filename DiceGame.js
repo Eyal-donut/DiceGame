@@ -165,7 +165,7 @@ startGameBtn.addEventListener("click", function (event) {
   }
 });
 
-//! ----------------------------------------------------The game--------------------------------------------------
+//! ---------------------------------------------The game - event listeners----------------------------------------
 
 rollDiceBtn.addEventListener("click", function () {
   if (!isGameOver()) {

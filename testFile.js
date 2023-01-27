@@ -1,11 +1,13 @@
-const rollDiceFunc = () => {
-    return Math.floor(Math.random()*6 + 1)
+
+const applauseAudio = new Audio("url(/assets/media/applause.mp3)")
+
+const playAudio = (event) => {
+  let p = event.currentTarget;
+  event.preventDefault;
+  // let fn = p.getAttribute('audio-file')
+  // let src = '/assets/media/' + fn + '.mp3';
+  // let audio = document.createElement('audio');
+  // audio.src = src;
+  applauseAudio.volume = 0.5;
+  applauseAudio.play();
 }
-console.log(rollDiceFunc())
-
-
-//eventListener - currentPlayer  clicks the hold button
-//function activated totalSum. current is added to total
-//function activated: isGameOver: if current of player === gameTarget, currentPlayer wins, if current > gameTarget, otherPlayer win. activate function announceWinner. gameOver. else do nothing.
-//changePlayer function is called.
-//toggle overlay function is called: screens overlay change
