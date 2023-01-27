@@ -103,6 +103,7 @@ const currentToZero = (p) => {
 
 const afterGameOver = () => {
   playAudio(applauseAudio);
+  toggleFinger();
   let winner = "";
   if (player1.score > gameTarget) {
     winner = player2;
@@ -158,8 +159,10 @@ const toggleOverlay = () => {
 };
 
 const toggleFinger = () => {
-  !isGameOver() ? finger.classList.toggle("transitioned") : finger.classList.toggle("gameOver");
-}
+  !isGameOver()
+    ? finger.classList.toggle("transitioned")
+    : finger.classList.toggle("gameOver");
+};
 
 const diceToCurrent = (p) => {
   if (p === player1) {
