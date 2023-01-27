@@ -72,7 +72,7 @@ h1 {
   font-weight: 700;
   color: var(--score-board);
 }
-h1 {
+h6 {
   font-size: 4.7rem;
   font-weight: 600;
   color: var(--score-board);
@@ -258,19 +258,19 @@ section.game-interface {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 35rem;
+  height: 30rem;
 }
 
 .dice1 {
-  height: 15rem;
-  width: 15rem;
+  height: 12rem;
+  width: 12rem;
   background: url(/assets/img/dice-1.png) no-repeat center center/cover;
   box-shadow: 0 0 2rem rgb(0, 0, 0, 0.3);
   --webkit-box-shadow: 0 0 2rem rgb(0, 0, 0, 0.3);
 }
 .dice2 {
-  height: 15rem;
-  width: 15rem;
+  height: 12rem;
+  width: 12rem;
   background: url(/assets/img/dice-1.png) no-repeat center center/cover;
   box-shadow: 0 0 2rem rgb(0, 0, 0, 0.3);
   --webkit-box-shadow: 0 0 2rem rgb(0, 0, 0, 0.3);

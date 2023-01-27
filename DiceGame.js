@@ -100,13 +100,13 @@ const afterGameOver = () => {
   if (player1.score > gameTarget || player2.score === gameTarget) {
     winner = player2;
     player2InterfaceContainer.classList.add("winner");
-    player2Heading.innerHTML = `<h1>PLAYER 2</h1>`;
+    player2Heading.innerHTML = `<h6>PLAYER 2</h6>`;
     youWinContainerP2.append(youWin);
     youWinContainerP1.append(passedTargetScore);
   } else {
     winner = player1;
     player1InterfaceContainer.classList.add("winner");
-    player1Heading.innerHTML = `<h1>PLAYER 1</h1>`;
+    player1Heading.innerHTML = `<h6>PLAYER 1</h6>`;
     youWinContainerP1.append(youWin);
     youWinContainerP2.append(passedTargetScore);
   }
@@ -120,7 +120,7 @@ const isGameOver = () => {
     player2.score === gameTarget
   ) {
     afterGameOver();
-    return true;
+    gameOver = true
   }
 };
 
@@ -168,10 +168,16 @@ holdBtn.addEventListener("click", function () {
   changePlayer();
   toggleOverlay();
 });
-// }
+// };
 // afterGameOver();
 
 //! New game
 newGameBtn.addEventListener("click", function () {
   window.location.reload();
 });
+
+
+///make responsive: one breaking point that makes the middle menu smaller
+//why does the loop doesnt work?!?!?!?!?
+//put more margin from the bottom of the buttons
+//change the red alert to a normal message
