@@ -25,7 +25,8 @@
       display: none;
   }
 .finger,
-.finger.transitioned {
+.finger.transitioned,
+.finger.gameOver {
   visibility: visible;
 }
 }

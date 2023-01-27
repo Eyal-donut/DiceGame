@@ -161,6 +161,16 @@ section.game-interface {
   transform: translateX(50vw) rotate(230deg);
   visibility: hidden;
 }
+.finger.gameOver{
+  width: 8rem;
+  height: 6rem;
+  background: url(/assets/img/finger3.png) no-repeat center center/cover;
+  top: 60vh;
+  left: 20vw;
+  position: absolute;
+  transform: translateX(300vw) rotate(340deg);
+  visibility: hidden;
+}
 
 .player1-overlay {
   position: absolute;

@@ -158,7 +158,7 @@ const toggleOverlay = () => {
 };
 
 const toggleFinger = () => {
-  !isGameOver() ? finger.classList.toggle("transitioned") : "";
+  !isGameOver() ? finger.classList.toggle("transitioned") : finger.classList.toggle("gameOver");
 }
 
 const diceToCurrent = (p) => {
