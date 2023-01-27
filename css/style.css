@@ -143,7 +143,7 @@ section.game-interface {
   width: 50%;
   visibility: hidden;
 }
-.player1-overlay.visibility {
+.player1-overlay.active {
   position: absolute;
   top: 0;
   left: 0;
@@ -163,7 +163,7 @@ section.game-interface {
   width: 50%;
   visibility: visible;
 }
-.player2-overlay.visibility {
+.player2-overlay.active {
   position: absolute;
   top: 0;
   right: 0;

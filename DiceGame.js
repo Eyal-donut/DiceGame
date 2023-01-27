@@ -1,4 +1,4 @@
-//--------------------------------------------------Players objects------------------------------------------------
+//-------------------------------------------------Players objects------------------------------------------------
 const player1 = {
   score: 0,
 };
@@ -20,7 +20,7 @@ let sumOfDice = 0;
 const rollDiceBtn = document.querySelector("#roll-dice");
 rollDiceBtn.disabled = false;
 const holdBtn = document.querySelector(".hold-btn");
-holdBtn.disabled = false;
+holdBtn.disabled = true;
 const startGameBtn = document.querySelector("#start-game-btn");
 const input = document.querySelector("input");
 const modal = document.querySelector(".modal");
@@ -71,6 +71,7 @@ failAlert.innerText = "*Please select a number between 20 to 10000";
 //! ------------------------------------------------------functions --------------------------------------------
 
 const rollDiceFunc = () => {
+  holdBtn.disabled = false;
   playAudio(diceAudio);
   dice1Result = Math.floor(Math.random() * 6 + 1);
   dice2Result = Math.floor(Math.random() * 6 + 1);
@@ -124,7 +125,7 @@ const isGameOver = () => {
     player1.score === gameTarget ||
     player2.score === gameTarget
   ) {
-    holdBtn.disabled = true;
+    // holdBtn.disabled = true;
     rollDiceBtn.disabled = true;
     afterGameOver();
     return true;
@@ -136,11 +137,12 @@ const changePlayer = () => {
     ? (currentPlayer = player2)
     : (currentPlayer = player1);
   otherPlayer === player1 ? (otherPlayer = player2) : (otherPlayer = player1);
+
 };
 
 const toggleOverlay = () => {
-  player1Overlay.classList.toggle("visibility");
-  player2Overlay.classList.toggle("visibility");
+  player1Overlay.classList.toggle("active");
+  player2Overlay.classList.toggle("active");
 };
 
 const diceToCurrent = (p) => {
@@ -157,6 +159,7 @@ const diceToCurrent = (p) => {
     toggleOverlay();
   }
 };
+
 
 //!-----------------------------------------------------Audio-----------------------------------------------------
 
@@ -195,6 +198,7 @@ holdBtn.addEventListener("click", function () {
     currentToZero(currentPlayer);
     isGameOver();
     changePlayer();
+    holdBtn.disabled = true;
     toggleOverlay();
   }
 });
