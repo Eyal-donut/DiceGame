@@ -103,18 +103,31 @@ const currentToZero = (p) => {
 const afterGameOver = () => {
   playAudio(applauseAudio);
   let winner = "";
-  if (player1.score > gameTarget || player2.score === gameTarget) {
+  if (player1.score > gameTarget) {
     winner = player2;
     player2InterfaceContainer.classList.add("winner");
     player2Heading.innerHTML = `<h6>PLAYER 2</h6>`;
     youWinContainerP2.append(youWin);
     youWinContainerP1.append(passedTargetScore);
-  } else {
+  }
+  if (player2.score === gameTarget) {
+    winner = player2;
+    player2InterfaceContainer.classList.add("winner");
+    player2Heading.innerHTML = `<h6>PLAYER 2</h6>`;
+    youWinContainerP2.append(youWin);
+  }
+  if (player2.score > gameTarget) {
     winner = player1;
     player1InterfaceContainer.classList.add("winner");
     player1Heading.innerHTML = `<h6>PLAYER 1</h6>`;
     youWinContainerP1.append(youWin);
     youWinContainerP2.append(passedTargetScore);
+  }
+  if (player1.score === gameTarget) {
+    winner = player1;
+    player1InterfaceContainer.classList.add("winner");
+    player1Heading.innerHTML = `<h6>PLAYER 1</h6>`;
+    youWinContainerP1.append(youWin);
   }
 };
 
@@ -125,7 +138,6 @@ const isGameOver = () => {
     player1.score === gameTarget ||
     player2.score === gameTarget
   ) {
-    // holdBtn.disabled = true;
     rollDiceBtn.disabled = true;
     afterGameOver();
     return true;
@@ -137,7 +149,6 @@ const changePlayer = () => {
     ? (currentPlayer = player2)
     : (currentPlayer = player1);
   otherPlayer === player1 ? (otherPlayer = player2) : (otherPlayer = player1);
-
 };
 
 const toggleOverlay = () => {
@@ -160,7 +171,6 @@ const diceToCurrent = (p) => {
   }
 };
 
-
 //!-----------------------------------------------------Audio-----------------------------------------------------
 
 const applauseAudio = new Audio("/assets/media/applause.mp3");
@@ -175,7 +185,7 @@ const playAudio = (audio) => {
 
 startGameBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  gameTarget = input.value;
+  gameTarget = Number(input.value);
   if (input.value > 20 && input.value < 10000) {
     modal.classList.add("hidden");
   } else {
@@ -187,11 +197,10 @@ startGameBtn.addEventListener("click", function (event) {
 //! ---------------------------------------------The game - event listeners----------------------------------------
 
 rollDiceBtn.addEventListener("click", function () {
-  if (!isGameOver()) {
-    rollDiceFunc();
-    diceToCurrent(currentPlayer);
-  }
+  rollDiceFunc();
+  diceToCurrent(currentPlayer);
 });
+
 holdBtn.addEventListener("click", function () {
   if (!isGameOver()) {
     updateTotalSum(currentPlayer);
