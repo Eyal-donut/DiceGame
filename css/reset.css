@@ -1,6 +1,7 @@
 :root {
     font-size: 58%;
     letter-spacing: 0.06rem;
+    overflow-y: hidden;
 }
 *{
     padding: 0;

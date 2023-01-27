@@ -31,6 +31,7 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
 }
 form {
   display: flex;
@@ -64,6 +65,7 @@ button {
 .interface-btn {
   width: 10rem;
   background: url(/assets/media/applause.mp3);
+  margin: 2rem 0;
 }
 h1 {
   font-size: 7.4rem;
