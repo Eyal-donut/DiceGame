@@ -18,6 +18,16 @@
   .middle-container {
     padding: 10rem 0 34rem;
   }
+  .player1-overlay,
+  .player1-overlay.active,
+  .player2-overlay,
+  .player2-overlay.active {
+      display: none;
+  }
+.finger,
+.finger.transitioned {
+  visibility: visible;
+}
 }
 
 @media (max-width: 500px) {

@@ -26,6 +26,7 @@ const input = document.querySelector("input");
 const modal = document.querySelector(".modal");
 const newGameBtn = document.querySelector(".new-game-btn");
 const ParentOfFailAlert = document.querySelector("h3.select-target-score");
+const finger = document.querySelector(".finger");
 
 //-----------------------------------------QuerySelector Variables player 1--------------------------------------
 
@@ -156,6 +157,10 @@ const toggleOverlay = () => {
   player2Overlay.classList.toggle("active");
 };
 
+const toggleFinger = () => {
+  !isGameOver() ? finger.classList.toggle("transitioned") : "";
+}
+
 const diceToCurrent = (p) => {
   if (p === player1) {
     currentRoundSumP1.textContent =
@@ -209,6 +214,7 @@ holdBtn.addEventListener("click", function () {
     changePlayer();
     holdBtn.disabled = true;
     toggleOverlay();
+    toggleFinger();
   }
 });
 
