@@ -62,9 +62,12 @@ button {
   border: 0.1rem solid black;
 }
 
-.interface-btn {
-  width: 10rem;
-  background: url(/assets/media/applause.mp3);
+button.new-game-btn,
+button#roll-dice,
+button.hold-btn
+{
+  height: 5rem;
+  width: 20rem;
   margin: 2rem 0;
 }
 h1 {
@@ -136,7 +139,7 @@ section.game-interface {
   left: 0;
   z-index: 1;
   background: rgb(0, 0, 0, 0.2);
-  height: 150%;
+  height: 100%;
   width: 50%;
   visibility: hidden;
 }
@@ -146,7 +149,7 @@ section.game-interface {
   left: 0;
   z-index: 1;
   background: rgb(0, 0, 0, 0.2);
-  height: 150%;
+  height: 100%;
   width: 50%;
   visibility: visible;
 }
@@ -156,7 +159,7 @@ section.game-interface {
   right: 0;
   z-index: 1;
   background: rgb(0, 0, 0, 0.1);
-  height: 150%;
+  height: 100%;
   width: 50%;
   visibility: visible;
 }
@@ -166,7 +169,7 @@ section.game-interface {
   right: 0;
   z-index: 1;
   background: rgb(0, 0, 0, 0.1);
-  height: 150%;
+  height: 100%;
   width: 50%;
   visibility: hidden;
 }
@@ -276,6 +279,7 @@ section.game-interface {
   background: url(/assets/img/dice-1.png) no-repeat center center/cover;
   box-shadow: 0 0 2rem rgb(0, 0, 0, 0.3);
   --webkit-box-shadow: 0 0 2rem rgb(0, 0, 0, 0.3);
+  margin: 2rem 0;
 }
 .dice2 {
   height: 12rem;
