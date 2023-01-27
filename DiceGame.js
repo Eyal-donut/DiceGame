@@ -1,12 +1,13 @@
+//--------------------------------------------------Players objects------------------------------------------------
 const player1 = {
   score: 0,
 };
 const player2 = {
   score: 0,
 };
-//------------------------------------------- Variables
+//------------------------------------------------ Global variables-------------------------------------------------
 
-let gameTarget = 1000000;
+let gameTarget = 10001;
 let currentPlayer = player1;
 let otherPlayer = player2;
 let winner = "";
@@ -14,37 +15,43 @@ let dice1Result = 0;
 let dice2Result = 0;
 let sumOfDice = 0;
 
-//--------------------------------------
-//-----------------------------------------QuerySelector Variables
+//-----------------------------------------QuerySelector Variables general----------------------------------------
+
 const rollDiceBtn = document.querySelector("#roll-dice");
 const holdBtn = document.querySelector(".hold-btn");
 const startGameBtn = document.querySelector("#start-game-btn");
 const input = document.querySelector("input");
 const modal = document.querySelector(".modal");
 const newGameBtn = document.querySelector(".new-game-btn");
-const ParentOfFailAlert = document.querySelector("h3.select-target-score")
+const ParentOfFailAlert = document.querySelector("h3.select-target-score");
 
+//-----------------------------------------QuerySelector Variables player 1--------------------------------------
 
 const dicePic1 = document.querySelector(".dice1");
-const dicePic2 = document.querySelector(".dice2");
 const currentRoundSumP1 = document.querySelector(".current-round-p1");
-const currentRoundSumP2 = document.querySelector(".current-round-p2");
 const totalGameSump1 = document.querySelector(".total-game-sum-p1");
-const totalGameSump2 = document.querySelector(".total-game-sum-p2");
 const player1Overlay = document.querySelector(".player1-overlay");
-const player2Overlay = document.querySelector(".player2-overlay");
 const player1InterfaceContainer = document.querySelector(
   ".player1-interface-container"
 );
-const player2InterfaceContainer = document.querySelector(
-  ".player2-interface-container"
-);
+
+//-----------------------------------------QuerySelector Variables player 2---------------------------------------
+
+const dicePic2 = document.querySelector(".dice2");
+const currentRoundSumP2 = document.querySelector(".current-round-p2");
+const totalGameSump2 = document.querySelector(".total-game-sum-p2");
+const player2Overlay = document.querySelector(".player2-overlay");
+
 const player1Heading = document.querySelector(".player1-heading");
 const player2Heading = document.querySelector(".player2-heading");
 const youWinContainerP1 = document.querySelector(".you-win-container-p1");
 const youWinContainerP2 = document.querySelector(".you-win-container-p2");
+const player2InterfaceContainer = document.querySelector(
+  ".player2-interface-container"
+);
 
-//-----------------------------Create new Elements----------------------
+//----------------------------------------------- create new element---------------------------------------------
+
 const youWin = document.createElement("h5");
 youWin.textContent = "You Win!";
 youWin.style.color = "#941D4A";
@@ -57,9 +64,9 @@ passedTargetScore.style.marginTop = "30rem";
 
 const failAlert = document.createElement("h4");
 failAlert.classList.add("error");
-failAlert.innerText = "*Please select a number between 20 to 10000"
-//------------------------------------------------------------------------
-//! --------------------------------------------functions ---------------------
+failAlert.innerText = "*Please select a number between 20 to 10000";
+
+//! ------------------------------------------------------functions --------------------------------------------
 
 const rollDiceFunc = () => {
   dice1Result = Math.floor(Math.random() * 6 + 1);
@@ -67,16 +74,6 @@ const rollDiceFunc = () => {
   sumOfDice = dice1Result + dice2Result;
   dicePic1.style.background = `url(/assets/img/dice-${dice1Result}.png) no-repeat center center/cover`;
   dicePic2.style.background = `url(/assets/img/dice-${dice2Result}.png) no-repeat center center/cover`;
-};
-
-const diceToCurrent = (p) => {
-  if (p === player1) {
-    currentRoundSumP1.textContent =
-      parseFloat(currentRoundSumP1.textContent) + sumOfDice;
-  } else {
-    currentRoundSumP2.textContent =
-      parseFloat(currentRoundSumP2.textContent) + sumOfDice;
-  }
 };
 
 const updateTotalSum = (p) => {
@@ -140,48 +137,55 @@ const toggleOverlay = () => {
   player2Overlay.classList.toggle("visibility");
 };
 
-//! modal
-// click event on start game:
+const diceToCurrent = (p) => {
+  if (p === player1) {
+    currentRoundSumP1.textContent =
+      parseFloat(currentRoundSumP1.textContent) + sumOfDice;
+  } else {
+    currentRoundSumP2.textContent =
+      parseFloat(currentRoundSumP2.textContent) + sumOfDice;
+  }
+  if (sumOfDice === 12) {
+    currentToZero(currentPlayer);
+    changePlayer();
+    toggleOverlay();
+  }
+};
+
+//!------------------------------------------------------Modal ----------------------------------------------------
+
 startGameBtn.addEventListener("click", function (event) {
   event.preventDefault();
   gameTarget = input.value;
   if (input.value > 20 && input.value < 10000) {
     modal.classList.add("hidden");
   } else {
-    //!CHANGE THIS ALERT TO A NORMAL NOTIFICATION!!!!!!!!!!!!!!!!!!!
     ParentOfFailAlert.append(failAlert);
-    // failInputAlert.classList.add("error");
-    // failInputAlert.setAttribute("data-errormsg", "Select a number between 20 to 10000")
     input.value = 100;
   }
 });
 
-//1. prevent default (no need of page refresh)
-//2. target of game is set to the input of the form.
-//3. modal is becoming invisible.
-
-//! The game
+//! ----------------------------------------------------The game--------------------------------------------------
 
 rollDiceBtn.addEventListener("click", function () {
   if (!isGameOver()) {
+    holdBtn.disabled = false;
     rollDiceFunc();
     diceToCurrent(currentPlayer);
-  };
+  }
 });
 holdBtn.addEventListener("click", function () {
   if (!isGameOver()) {
-  updateTotalSum(currentPlayer);
-  currentToZero(currentPlayer);
-  isGameOver();
-  changePlayer();
-  toggleOverlay();
+    holdBtn.disabled = true;
+    updateTotalSum(currentPlayer);
+    currentToZero(currentPlayer);
+    isGameOver();
+    changePlayer();
+    toggleOverlay();
   }
 });
 
-//! New game
 newGameBtn.addEventListener("click", function () {
   window.location.reload();
 });
 
-///make responsive: one breaking point that makes the middle menu smaller
-//add icons to buttons

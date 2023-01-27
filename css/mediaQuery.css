@@ -1,6 +1,6 @@
 @media (max-width: 1050px) {
   :root {
-    font-size: 50%;
+    font-size: 45%;
     letter-spacing: 0.06rem;
   }
   .player1-interface-container {
@@ -16,7 +16,7 @@
     width: 90%;
   }
   .middle-container {
-    padding: 15rem 0 25rem;
+    padding: 10rem 0 34rem;
   }
 }
 
@@ -38,6 +38,6 @@
     width: 95%;
   }
   .middle-container {
-    padding: 28rem 0 30rem;
+    padding: 25rem 0 42rem;
   }
 }
